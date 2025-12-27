@@ -4,7 +4,9 @@ export default [
     text: '知识积累', items: [
       { text: '数学', link: '/知识积累/数学/' },
       { text: '物理', link: '/知识积累/物理/' },
-      { text: '化学', link: '/知识积累/化学/' }
+      { text: '化学', link: '/知识积累/化学/' },
+      { text: '生物', link: '/知识积累/生物/' },
+      { text: '英语', link: '/知识积累/英语/' }
     ]
   },
   { text: '考试', items: [
