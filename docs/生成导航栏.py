@@ -110,6 +110,6 @@ if __name__ == "__main__":
     # print(final_js_content)
 
     # 可选：将生成的内容写入文件（比如 nav.config.js）
-    with open(r"docs/.vitepress/nav.mjs", "w", encoding="utf-8") as f:
+    with open(r"d:/notes/docs/.vitepress/nav.mjs", "w", encoding="utf-8") as f:
         f.write(final_js_content)
     # print("\n配置已写入 docs/.vitepress/nav.mjs 文件")
