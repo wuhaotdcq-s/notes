@@ -5,7 +5,7 @@ import { generateSidebar } from './sidebar.mjs'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base: '/vp-notes/',
+  base: '/notes/',
   title: "笔记站",
   description: "我的笔记站",
   themeConfig: {
