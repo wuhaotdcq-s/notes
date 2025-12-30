@@ -1,0 +1,56 @@
+/* 自定义表格样式 */
+.font-jcys {
+    font-weight: bold;
+    color: #b00000;
+}
+
+.font-jc {
+    font-weight: bold;
+}
+
+.font-jcysxh {
+    /* font-weight: bold; */
+    color: #b00000;
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 5px;
+}
+
+.font-zybj {
+    /* font-weight: bold; */
+    color: #ff0000;
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 5px;
+}
+
+table {
+
+    text-align: center !important;
+    border-collapse: collapse !important;
+}
+
+
+.vp-doc td,
+.vp-doc th { 
+    border: 2px solid #b00000 !important;
+    color: #0070b0;
+    padding: 0.5em !important;
+}
+
+p {
+    color: #000000;
+    text-indent: 2em;
+    margin: 0.5em;
+    width: 100%;
+}
+
+page-break {
+    page-break-before: always;
+}
+
+.content {
+    padding: 10px;
+    min-width: 900px;
+    margin: 10px 0;
+}

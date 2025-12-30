@@ -1,0 +1,16 @@
+// index.js
+// import DefaultTheme from 'vitepress/theme'
+// import './custom.css'
+
+// export default DefaultTheme
+
+// .vitepress/theme/index.js
+
+// 可以直接在主题入口导入 Vue 文件
+// VitePress 已预先配置 @vitejs/plugin-vue
+// import Layout from './MyLayout.vue';
+import './style.css'
+// import './custom.css'
+export default {
+
+};
