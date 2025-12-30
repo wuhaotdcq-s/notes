@@ -11,7 +11,7 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav,
-    head,
+    head: head,
     sidebar: generateSidebar(),
     // 分页导航
         docFooter: {
