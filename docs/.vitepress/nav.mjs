@@ -18,7 +18,7 @@ export default [
       { text: '项目', link: '/工作/项目/' }
     ] },
   { text: '兴趣', items: [
-      
+      { text: '编程学习', link: '/兴趣/编程学习/' }
     ] },
   { text: '软件学习', items: [
       
