@@ -27,3 +27,8 @@
 .VPNavBar .content-body {
   background: transparent !important;
 }
+
+
+.docSearch-button{
+    background-color: rgba(26, 26, 26, 0);
+}
