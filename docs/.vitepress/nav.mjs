@@ -21,7 +21,9 @@ export default [
       { text: '编程学习', link: '/兴趣/编程学习/' }
     ] },
   { text: '软件学习', items: [
-      
+      { text: 'PS', link: '/软件学习/PS/' },
+      { text: 'AE', link: '/软件学习/AE/' },
+      { text: 'AU', link: '/软件学习/AU/' }
     ] },
   { text: '其他', items: [
       { text: 'vitepress', link: '/其他/vitepress/' }
