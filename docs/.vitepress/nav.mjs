@@ -26,6 +26,6 @@ export default [
       { text: 'AU', link: '/软件学习/AU/' }
     ] },
   { text: '其他', items: [
-      { text: 'vitepress', link: '/其他/vitepress/' }
+      { text: '帮助', link: '/其他/帮助/' }
     ] }
 ]
