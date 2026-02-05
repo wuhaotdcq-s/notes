@@ -26,6 +26,7 @@ export default [
       { text: 'AU', link: '/软件学习/AU/' }
     ] },
   { text: '其他', items: [
-      { text: '帮助', link: '/其他/帮助/' }
+      { text: '帮助', link: '/其他/帮助/' },
+      { text: '冷知识', link: '/其他/冷知识/' }
     ] }
 ]
