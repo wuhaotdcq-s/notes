@@ -8,10 +8,10 @@ export default defineConfig({
   base: '/notes/',
   title: "笔记站",
   description: "我的笔记站",
-  // ✅ markdown 配置移到顶层，与 themeConfig 同级
+
   markdown: {
     lineNumbers: true,
-    // ✅ container 配置放在顶层 markdown 下
+    // 容器标签中文配置
     container: {
       tipLabel: '提示',
       warningLabel: '注意',
@@ -24,7 +24,9 @@ export default defineConfig({
     config: (md) => {
       // 可在此处添加 Markdown 插件
     }
+    // 删除所有 mermaid 相关配置
   },
+
   themeConfig: {
     nav,
     head: head,
@@ -34,10 +36,9 @@ export default defineConfig({
       prev: '上一页',
       next: '下一页'
     },
-    // 编辑此页（如需开启请替换仓库地址）
+    // 编辑此页
     editLink: {
       text: '编辑此页面',
-      // 示例：替换为你的实际仓库路径
       pattern: 'https://github.com/wuhaotdcq-s/notes/tree/main/docs/:path'
     },
     footer: {

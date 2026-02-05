@@ -170,7 +170,8 @@ import {
   withMemo,
   withModifiers,
   withScopeId
-} from "./chunk-IO5XON7T.js";
+} from "./chunk-XKDLJUKD.js";
+import "./chunk-FDBJFBLO.js";
 export {
   BaseTransition,
   BaseTransitionPropsValidators,
@@ -344,3 +345,4 @@ export {
   withModifiers,
   withScopeId
 };
+//# sourceMappingURL=vue.js.map
