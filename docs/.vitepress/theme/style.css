@@ -15,7 +15,7 @@
 /* 自定义字体样式 - 黑色文字+下划线（下划线粗细1.5px、偏移文字5px，class="font-jcysxh" 生效） */
 .font-jcysxh {
     /* font-weight: bold; */
-    color: rgb(0, 0, 0);
+    color: blue;
     text-decoration: underline;
     text-decoration-thickness: 1.5px;
     text-underline-offset: 5px;
