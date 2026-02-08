@@ -2,6 +2,7 @@
 :root:not(.dark) .VPNav {
   backdrop-filter: blur(10px) saturate(180%) !important;
   -webkit-backdrop-filter: blur(10px) saturate(180%) !important;
+ /* 控制导航栏颜色的 */
   background: linear-gradient(
           to bottom,
           rgba(0, 253, 194, 0.3) 0%,
