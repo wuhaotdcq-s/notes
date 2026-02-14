@@ -23,8 +23,12 @@ export default defineConfig({
     codeTransformers: [],
     config: (md) => {
       // 可在此处添加 Markdown 插件
-    }
+    },
     // 删除所有 mermaid 相关配置
+    image: {
+      // 默认禁用；设置为 true 可为所有图片启用懒加载。
+      lazyLoading: true
+    },
   },
 
   themeConfig: {

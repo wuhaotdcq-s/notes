@@ -142,7 +142,6 @@ p {
 .VPHomeHero .name {
     font-size: 3rem;
     background: linear-gradient(120deg, var(--vp-c-brand), var(--vp-c-brand-light));
-    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
