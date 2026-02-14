@@ -10,6 +10,7 @@ export default [
     ]
   },
   { text: '考试', items: [
+      { text: '学习记录', link: '/考试/学习记录/' },
       { text: '一级建造师', link: '/考试/一级建造师/' },
       { text: '注册岩土', link: '/考试/注册岩土/' }
     ] },
