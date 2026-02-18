@@ -165,6 +165,8 @@ p {
     --vp-c-bg: #ffffff; /* 页面主背景色：白色 */
     --vp-c-bg-alt: #f6f8fa; /* 备用背景色：浅灰，用于侧边栏等区域 */
     --vp-c-brand: #0022ff; /* 主题品牌色：深蓝色 */
+    --vp-home-hero-name-color: transparent;
+    --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe, #41d1ff);
 }
 
 /* 暗色模式主题变量 - 当页面切换到 dark 类时，覆盖亮色模式变量，定义暗色背景和浅蓝品牌色 */
