@@ -157,16 +157,18 @@ p {
     -webkit-text-fill-color: #00000069;
 }
 
+
 /* 首页特性卡片样式 - 卡片添加 1px 主题分割线边框，12px 圆角，0.2s 位移过渡动画 */
-.VPFeature {
-    border: 1px solid var(--vp-c-divider);
-    border-radius: 12px;
+.VPFeature .box{
+    border: 2px solid var(--vp-c-divider);
+    border-radius: 13px;
     transition: transform 0.2s;
+    
 }
 
 /* 首页特性卡片hover状态 - 鼠标悬浮时，卡片向上平移 4px，营造悬浮感，提升交互体验 */
 .VPFeature:hover {
-    transform: translateY(-4px);
+    transform: translateY(-8px);
 }
 
 /* ======================================
