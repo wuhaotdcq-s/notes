@@ -82,6 +82,7 @@ p {
 .vp-doc h1 {
     border-bottom: 4px solid var(--vp-c-brand);
     padding-bottom: 10px;
+    
 }
 
 /* 文档二级标题样式 - 文字颜色使用主题变量 vp-c-text-1，上外边距2em，区分一级标题，控制标题间距 */
@@ -141,14 +142,20 @@ p {
 /* 首页 Hero 区域 - 站点名称文字样式，3rem 字体大小，渐变文字（品牌色→品牌浅色），仅webkit内核浏览器生效 */
 .VPHomeHero .name {
     font-size: 4rem;
-    background: linear-gradient(120deg, var(--vp-c-brand), var(--vp-c-brand-light));
-    -webkit-text-fill-color: #000000;
-}
+    background: linear-gradient(120deg, #bd34fe, #41d1ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* color: -webkit-linear-gradient(120deg, #bd34fe, #41d1ff) !important; */
+    /* color: var(--vp-home-text-color); */
+} 
 
 .VPHomeHero .text {
     font-size: 2rem;
-    background: linear-gradient(120deg, var(--vp-c-brand), var(--vp-c-brand-light));
-    -webkit-text-fill-color: #000000;
+    background: linear-gradient(120deg, #bd34fe, #41d1ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .VPHomeHero .tagline {
@@ -157,6 +164,11 @@ p {
     -webkit-text-fill-color: #00000069;
 }
 
+.dark .VPHomeHero .tagline {
+    font-size: 1.5rem;
+    background: linear-gradient(120deg, var(--vp-c-brand), var(--vp-c-brand-light));
+    -webkit-text-fill-color: #ffffff;
+}
 
 /* 首页特性卡片样式 - 卡片添加 1px 主题分割线边框，12px 圆角，0.2s 位移过渡动画 */
 .VPFeature .box{
@@ -179,12 +191,8 @@ p {
     --vp-c-bg: #ffffff; /* 页面主背景色：白色 */
     /* 核心作用：设置整个页面最基础的背景颜色，比如正文区域、页面主体的底色 */
     
-    --vp-c-bg-alt: #f6f8fa; /* 备用背景色：浅灰，用于侧边栏等区域 */
+    --vp-c-bg-alt: #000000; /* 备用背景色：浅灰，用于侧边栏等区域 */
     /* 核心作用：作为主背景色的补充，用于区分不同区域（比如侧边栏、卡片、导航栏），避免页面单调 */
-    
-    --vp-c-brand: #0022ff; /* 主题品牌色：深蓝色 */
-    /* 核心作用：定义网站的核心品牌色，通常用于按钮、链接、标题强调、边框等关键元素，强化视觉识别 */
-    
 }
 
 /* 暗色模式主题变量 - 当页面切换到 dark 类时，覆盖亮色模式变量，定义暗色背景和浅蓝品牌色 */
@@ -192,6 +200,9 @@ p {
     --vp-c-bg: #1a1a1a; /* 暗色模式主背景色：深灰黑 */
     --vp-c-bg-alt: #242424; /* 暗色模式备用背景色：略浅的深灰 */
     --vp-c-brand: #a6acff; /* 暗色模式品牌色：浅蓝紫 */
+
+    --vp-home-text-color: #e0e0e0; /* 浅灰色，确保在深色背景下清晰可见 */
+    --vp-home-tagline-color: #b0b0b0; /* 更浅的灰色，用于次要文字如标语 */
 }
 
 /* 系统偏好暗色模式适配 - 当用户操作系统设置为暗色模式时，文档容器启用暗色颜色方案，保证样式一致性 */

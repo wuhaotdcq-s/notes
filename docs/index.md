@@ -59,3 +59,13 @@ features:  # 关键：缩进与 hero 同级（2 个空格），之前可能层�
       details: 存放未分类或临时性的笔记内容，方便后续整理和归档。
       link: 其他
 ---
+
+
+## Getting Started
+
+You can get started using VitePress right away using `npx`!
+
+```sh
+npm init
+npx vitepress init
+```
