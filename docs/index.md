@@ -60,12 +60,6 @@ features:  # 关键：缩进与 hero 同级（2 个空格），之前可能层�
       link: 其他
 ---
 
+<p></p>
 
-## Getting Started
-
-You can get started using VitePress right away using `npx`!
-
-```sh
-npm init
-npx vitepress init
-```
+<!--@include: ../README.md-->
