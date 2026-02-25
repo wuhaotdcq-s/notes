@@ -8,6 +8,8 @@ export default defineConfig({
   base: '/notes/',
   title: "笔记站",
   description: "我的笔记站",
+  
+  // 默认为 true。设置为 false 来禁用所有页面的 Algolia 搜索。
 
   markdown: {
     lineNumbers: true,
@@ -35,6 +37,8 @@ export default defineConfig({
     nav,
     head: head,
     sidebar: generateSidebar(),
+    logo: 'https://vitepress.dev/vitepress-logo-large.svg',
+
     // 分页导航
     docFooter: {
       prev: '上一页',
