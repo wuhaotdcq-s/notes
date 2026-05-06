@@ -92,7 +92,7 @@ export default defineConfig({
       },
     },
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' },
+      { icon: 'github', link: 'https://wuhaotdcq-s.github.io/notes/' },
       { icon: 'bilibili', link: 'https://space.bilibili.com/66129848' },
       { icon: 'wechat', link: 'https://weixin.su/' }
     ]
