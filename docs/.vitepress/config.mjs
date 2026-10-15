@@ -1,15 +1,39 @@
 import { defineConfig } from 'vitepress'
 import nav from './nav.mjs'
-import head from './head.mjs'
 import { generateSidebar } from './sidebar.mjs'
+
+const SITE_HOSTNAME = 'https://wuhaotdcq-s.github.io'
+const SITE_BASE = '/notes/'
+const REPO_URL = 'https://github.com/wuhaotdcq-s/notes'
+const SITE_TITLE = '笔记站'
+
+// 站点图标：内联 SVG（📚），无需额外静态资源
+const FAVICON =
+  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📚%3C/text%3E%3C/svg%3E"
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base: '/notes/',
-  title: "笔记站",
-  description: "我的笔记站",
-  
-  // 默认为 true。设置为 false 来禁用所有页面的 Algolia 搜索。
+  base: SITE_BASE,
+  lang: 'zh-CN',
+  title: SITE_TITLE,
+  description: '我的笔记站',
+  titleTemplate: `:title | ${SITE_TITLE}`,
+
+  // 启用「最近更新时间」（需要 git 历史；文案在 themeConfig.lastUpdated 中配置）
+  lastUpdated: true,
+
+  // 生成 sitemap.xml，便于搜索引擎收录
+  // 注意：VitePress 不会自动为 sitemap 拼接 base，hostname 必须包含 base 路径，
+  // 且结尾要带 `/`（地址解析依赖它），否则 /notes 前缀会被丢掉
+  sitemap: {
+    hostname: `${SITE_HOSTNAME}${SITE_BASE}`
+  },
+
+  // 注意：head 是顶层配置项，放在 themeConfig 里不会生效
+  head: [
+    ['link', { rel: 'icon', href: FAVICON }],
+    ['meta', { name: 'theme-color', content: '#a6acff' }]
+  ],
 
   markdown: {
     lineNumbers: true,
@@ -21,21 +45,16 @@ export default defineConfig({
       infoLabel: '信息',
       detailsLabel: '详情'
     },
+    // 数学公式由 markdown-it-mathjax3 在构建期渲染为内联 SVG，无需再引入 KaTeX 的 CSS/JS
     math: true,
-    codeTransformers: [],
-    config: (md) => {
-      // 可在此处添加 Markdown 插件
-    },
-    // 删除所有 mermaid 相关配置
     image: {
-      // 默认禁用；设置为 true 可为所有图片启用懒加载。
-      lazyLoading: true
-    },
+      // v2 中该选项已由 lazyLoading 更名为 lazyLoad（默认 false）
+      lazyLoad: true
+    }
   },
 
   themeConfig: {
     nav,
-    head: head,
     sidebar: generateSidebar(),
     logo: 'https://vitepress.dev/vitepress-logo-large.svg',
 
@@ -47,7 +66,7 @@ export default defineConfig({
     // 编辑此页
     editLink: {
       text: '编辑此页面',
-      pattern: 'https://github.com/wuhaotdcq-s/notes/tree/main/docs/:path'
+      pattern: `${REPO_URL}/edit/main/docs/:path`
     },
     footer: {
       message: '笔记站',
@@ -59,7 +78,7 @@ export default defineConfig({
     toggleSidebar: '切换侧边栏',
     outline: {
       level: [1, 3],
-      label: "目录",
+      label: '目录'
     },
     lastUpdated: {
       text: '最近更新时间',
@@ -68,9 +87,9 @@ export default defineConfig({
         timeStyle: 'medium'
       }
     },
-    darkModeSwitchLabel: "主题",
-    lightModeSwitchTitle: "切换到浅色模式",
-    darkModeSwitchTitle: "切换到深色模式",
+    darkModeSwitchLabel: '主题',
+    lightModeSwitchTitle: '切换到浅色模式',
+    darkModeSwitchTitle: '切换到深色模式',
     search: {
       provider: 'local',
       options: {
@@ -86,13 +105,13 @@ export default defineConfig({
               selectText: '选择',
               navigateText: '切换',
               closeText: '关闭'
-            },
-          },
-        },
-      },
+            }
+          }
+        }
+      }
     },
     socialLinks: [
-      { icon: 'github', link: 'https://wuhaotdcq-s.github.io/notes/' },
+      { icon: 'github', link: REPO_URL },
       { icon: 'bilibili', link: 'https://space.bilibili.com/66129848' },
       { icon: 'wechat', link: 'https://weixin.su/' }
     ]

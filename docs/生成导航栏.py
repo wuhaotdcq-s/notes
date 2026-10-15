@@ -109,7 +109,8 @@ if __name__ == "__main__":
     # print("\n================ 最终生成的 JS 配置 ================")
     # print(final_js_content)
 
-    # 可选：将生成的内容写入文件（比如 nav.config.js）
-    with open(r"d:/notes/docs/.vitepress/nav.mjs", "w", encoding="utf-8") as f:
+    # 输出路径：始终相对本脚本所在目录，避免硬编码绝对路径导致写错位置
+    output_path = os.path.join(zong_lu_jing, ".vitepress", "nav.mjs")
+    with open(output_path, "w", encoding="utf-8") as f:
         f.write(final_js_content)
-    # print("\n配置已写入 docs/.vitepress/nav.mjs 文件")
+    print(f"配置已写入 {output_path}")

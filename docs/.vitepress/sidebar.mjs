@@ -10,18 +10,17 @@ const __dirname = dirname(__filename)
 function getFileFrontmatter(filePath) {
   try {
     if (!existsSync(filePath)) {
-      return { title: null, order: 999, sidebar: {} }
+      return { title: null, order: 999 }
     }
     const content = readFileSync(filePath, 'utf-8')
     const { data } = matter(content)
     return {
       title: data.title || null,
-      order: data.order !== undefined ? data.order : 999,
-      sidebar: data.sidebar || {}
+      order: data.order !== undefined ? data.order : 999
     }
   } catch (error) {
     console.warn(`读取文件 ${filePath} frontmatter 失败:`, error.message)
-    return { title: null, order: 999, sidebar: {} }
+    return { title: null, order: 999 }
   }
 }
 
@@ -69,11 +68,9 @@ function hasValidContent(dirPath) {
  * @returns {Object[]} 生成的菜单项数组
  */
 function processDirectory(currentPath, baseUrl, level = 0) {
-  const allItems = []
-
   if (!existsSync(currentPath)) {
     console.warn(`⚠️ 目录不存在: ${currentPath}`)
-    return allItems
+    return []
   }
 
   let entries = []
@@ -84,7 +81,7 @@ function processDirectory(currentPath, baseUrl, level = 0) {
     )
   } catch (error) {
     console.error(`❌ 读取目录失败: ${currentPath}`, error.message)
-    return allItems
+    return []
   }
 
   const dirItems = []
@@ -252,6 +249,3 @@ export function generateSidebar() {
 
   return sidebar
 }
-
-// 导出默认生成的侧边栏
-export default generateSidebar()
