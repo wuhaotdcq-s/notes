@@ -1,0 +1,81 @@
+{
+  // ==========================================================================
+  // VitePress 笔记专用代码片段
+  //
+  // 用法：在 .md 文件里输入前缀（如 jcys）后按 Tab。
+  // 带 ${TM_SELECTED_TEXT} 的片段支持「先选中文字再展开」，会自动包住选中内容——
+  // 这对本仓库最有用：font-jcys 系列已出现 689 次。
+  //
+  // 主题里已定义的自定义类（见 docs/.vitepress/theme/style.css）：
+  //   font-jcys    加粗 + 黑色文字
+  //   font-jc      仅加粗
+  //   font-jcysxh  蓝色文字 + 下划线
+  //   font-zybj    黑色文字 + 下划线（备用，目前未使用）
+  // ==========================================================================
+  "VitePress frontmatter（order 决定侧边栏排序）": {
+    "scope": "markdown",
+    "prefix": "fm",
+    "body": ["---", "order: ${1:1}", "---", "", "$0"],
+    "description": "新建笔记的 frontmatter。order 越小越靠前，缺省时为 999"
+  },
+
+  "重点标记：加粗+黑色（font-jcys）": {
+    "scope": "markdown",
+    "prefix": "jcys",
+    "body": ["<span class=\"font-jcys\">${1:${TM_SELECTED_TEXT}}</span>$0"],
+    "description": "选中文字后展开，自动包一层强调标记。站点与 VS Code 预览均可见"
+  },
+
+  "重点标记：蓝字+下划线（font-jcysxh）": {
+    "scope": "markdown",
+    "prefix": "jcxh",
+    "body": ["<span class=\"font-jcysxh\">${1:${TM_SELECTED_TEXT}}</span>$0"],
+    "description": "选中文字后展开"
+  },
+
+  "重点标记：仅加粗（font-jc）": {
+    "scope": "markdown",
+    "prefix": "jc",
+    "body": ["<span class=\"font-jc\">${1:${TM_SELECTED_TEXT}}</span>$0"],
+    "description": "选中文字后展开"
+  },
+
+  "提示容器（::: tip）": {
+    "scope": "markdown",
+    "prefix": "tip",
+    "body": ["::: tip ${1:提示}", "${2:内容}", ":::", "$0"],
+    "description": "注意：容器语法只有 VitePress 站点会渲染，VS Code 内置预览显示为纯文本"
+  },
+
+  "警告容器（::: warning）": {
+    "scope": "markdown",
+    "prefix": "warn",
+    "body": ["::: warning ${1:注意}", "${2:内容}", ":::", "$0"]
+  },
+
+  "危险容器（::: danger）": {
+    "scope": "markdown",
+    "prefix": "danger",
+    "body": ["::: danger ${1:警告}", "${2:内容}", ":::", "$0"]
+  },
+
+  "折叠容器（::: details）": {
+    "scope": "markdown",
+    "prefix": "details",
+    "body": ["::: details ${1:标题}", "${2:内容}", ":::", "$0"]
+  },
+
+  "文件包含（@include）": {
+    "scope": "markdown",
+    "prefix": "inc",
+    "body": ["<!--@include: ${1:../README.md}-->", "$0"],
+    "description": "把另一个文件的内容插入当前页面"
+  },
+
+  "强制换行（HTML br）": {
+    "scope": "markdown",
+    "prefix": "br",
+    "body": ["<br>", "$0"],
+    "description": "本仓库用的是显式 <br> 而非行尾双空格，避免被编辑器裁掉空格"
+  }
+}

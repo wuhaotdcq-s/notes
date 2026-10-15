@@ -7,8 +7,15 @@ docs/.vitepress/cache/
 
 # 编辑器 / IDE
 .idea/
-.vscode/
 *.iml
+
+# VS Code：忽略本机私有文件，但提交仓库级共享配置
+# 注意必须写成 .vscode/*（而不是 .vscode/），否则下面的白名单不生效
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/tasks.json
+!.vscode/*.code-snippets
 
 # 操作系统文件
 .DS_Store

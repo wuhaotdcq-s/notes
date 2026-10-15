@@ -70,39 +70,44 @@ p {
 }
 
 /* ======================================
-   文档内容美化样式（vp-doc 正文区域）
+   文档内容美化样式（正文区域）
+
+   选择器统一写成 :is(.vp-doc, .vscode-body)，同一份样式同时作用于：
+     - VitePress 站点：正文容器是 .vp-doc
+     - VS Code 内置 Markdown 预览：正文容器是 body.vscode-body
+   这样只需要维护一份规则，不会出现两处写法漂移。
+   （.vscode-body 在站点里不存在，对线上无任何影响）
    ====================================== */
-.vp-doc h1 {
-    
+:is(.vp-doc, .vscode-body) h1 {
     border-bottom: 4px solid var(--vp-c-brand);
     padding-bottom: 10px;
 }
 
-.vp-doc h2 {
+:is(.vp-doc, .vscode-body) h2 {
     color: var(--vp-c-text-1);
     margin-top: 2em;
 }
 
-.vp-doc p {
+:is(.vp-doc, .vscode-body) p {
     line-height: 1.8;
 }
 
-.vp-doc a {
+:is(.vp-doc, .vscode-body) a {
     color: var(--vp-c-brand);
     text-decoration: none;
     transition: color 0.2s;
 }
 
-.vp-doc a:hover {
+:is(.vp-doc, .vscode-body) a:hover {
     text-decoration: underline;
 }
 
-.vp-doc div[class*="language-"] {
+:is(.vp-doc, .vscode-body) div[class*="language-"] {
     background: var(--vp-code-block-bg);
     border-radius: 8px;
 }
 
-.vp-doc :not(pre) > code {
+:is(.vp-doc, .vscode-body) :not(pre) > code {
     background: var(--vp-c-mute);
     color: var(--vp-c-text-code);
     padding: 0.2em 0.4em;
@@ -182,8 +187,9 @@ p {
     --vp-home-tagline-color: #00000069; /* 首页标语文字颜色：用于 Hero 区域标语文字 */
 }
 
-/* 暗色模式主题变量 - 当页面切换到 .dark 类时，覆盖亮色模式变量 */
-.dark {
+/* 暗色模式主题变量 - 当页面切换到 .dark 类时，覆盖亮色模式变量
+   VS Code 预览用 body.vscode-dark 表示暗色主题，所以一并匹配 */
+:is(.dark, .vscode-dark) {
     --vp-c-bg: #1a1a1a; /* 暗色模式主背景色：用于正文区域、页面主体背景 */
     --vp-c-bg-alt: #242424; /* 暗色模式备用背景色：用于侧边栏、卡片等辅助区域背景 */
     /* 暗色模式品牌色：浅紫在深色背景上对比度充足，直接使用原始色值 */
@@ -220,7 +226,7 @@ p {
         display: none;
     }
 
-    .vp-doc h1 {
+    :is(.vp-doc, .vscode-body) h1 {
         font-size: 2rem;
     }
 
@@ -246,9 +252,9 @@ p {
 }
 
 /* ======================================
-   表格强化样式（vp-doc 文档内表格）
+   表格强化样式（正文区域内的表格）
    ====================================== */
-.vp-doc table {
+:is(.vp-doc, .vscode-body) table {
     width: 100%;
     max-width: 100%;
     display: table;
@@ -257,30 +263,30 @@ p {
 }
 
 @media screen and (max-width: 768px) {
-    .vp-doc table {
+    :is(.vp-doc, .vscode-body) table {
         display: block;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
     }
 }
 
-.vp-doc th {
+:is(.vp-doc, .vscode-body) th {
     background: var(--vp-c-bg-soft);
     font-weight: 600;
     padding: 12px 16px;
     border: 1px solid var(--vp-c-divider);
 }
 
-.vp-doc td {
+:is(.vp-doc, .vscode-body) td {
     padding: 10px 16px;
     border: 1px solid var(--vp-c-divider);
 }
 
-.vp-doc tbody tr:nth-child(even) {
+:is(.vp-doc, .vscode-body) tbody tr:nth-child(even) {
     background: rgba(0, 0, 0, 0.02);
 }
 
-.dark .vp-doc tbody tr:nth-child(even) {
+:is(.dark, .vscode-dark) :is(.vp-doc, .vscode-body) tbody tr:nth-child(even) {
     background: rgba(255, 255, 255, 0.02);
 }
 

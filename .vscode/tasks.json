@@ -1,0 +1,47 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "docs:dev（VitePress 本地预览）",
+      "detail": "启动 VitePress 开发服务器，改完即刷新，渲染与线上 100% 一致",
+      "type": "npm",
+      "script": "docs:dev",
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "icon": { "id": "globe", "color": "terminal.ansiCyan" }
+    },
+    {
+      "label": "docs:build（构建并检查死链）",
+      "detail": "完整构建。有失效的内部链接时构建会直接失败并打印位置",
+      "type": "npm",
+      "script": "docs:build",
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "icon": { "id": "package", "color": "terminal.ansiYellow" }
+    },
+    {
+      "label": "docs:preview（预览构建产物）",
+      "detail": "以构建后的静态文件启动服务器，最接近 GitHub Pages 的实际表现",
+      "type": "npm",
+      "script": "docs:preview",
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "icon": { "id": "preview", "color": "terminal.ansiGreen" }
+    }
+  ]
+}

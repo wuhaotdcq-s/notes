@@ -1,0 +1,94 @@
+{
+  // ==========================================================================
+  // Markdown 预览
+  // ==========================================================================
+
+  // 把站点主题样式挂到内置预览。
+  // 这样 .font-jcys / .font-jcysxh 这些自定义高亮类在预览里就能直接看到效果，
+  // 不用开浏览器。路径相对工作区根目录。
+  // 顺序有意义：style.css 负责配色变量与规则，vscode-preview.css 补它缺的变量。
+  "markdown.styles": [
+    "docs/.vitepress/theme/style.css",
+    "docs/.vitepress/theme/vscode-preview.css"
+  ],
+
+  // 字体走 VS Code 原生设置（而不是写死在 CSS 里），方便你自己调
+  "markdown.preview.fontFamily": "'Segoe UI', 'Microsoft YaHei', 'PingFang SC', -apple-system, BlinkMacSystemFont, sans-serif",
+  "markdown.preview.fontSize": 15,
+  "markdown.preview.lineHeight": 1.8,
+
+  // VitePress 里 markdown-it 的 breaks / typographer 默认都是 false，
+  // 这里显式对齐，避免被用户级设置覆盖后预览与线上不一致。
+  "markdown.preview.breaks": false,
+  "markdown.preview.typographer": false,
+
+  // ==========================================================================
+  // 链接校验
+  // 本仓库有 1600+ 条内部链接，开启后能第一时间发现失效的相对链接。
+  // 外部 http(s) 链接不会被校验，无需配置。
+  // ==========================================================================
+  "markdown.validate.enabled": true,
+  "markdown.validate.ignoredLinks": [
+    // VitePress 的 base 前缀是线上路径，本地不存在，跳过
+    "/notes/**"
+  ],
+
+  // ==========================================================================
+  // 写作体验
+  // ==========================================================================
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": false
+    },
+    // 中文笔记里全角标点常被误判为「易混淆字符」，关掉减少干扰
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "editor.renderWhitespace": "trailing",
+    "editor.tabSize": 2
+  },
+
+  // ==========================================================================
+  // 图片 / 文件粘贴
+  // 粘贴的图片会落到笔记同级的「<笔记名>.assets/」目录。
+  // 已实测：VitePress 能正确处理这种相对路径（小图会内联为 data URI，
+  // 大图会打包进 dist/assets/ 并重写链接）。
+  // ==========================================================================
+  "markdown.copyFiles.destination": {
+    "**/*.md": "${documentBaseName}.assets/"
+  },
+  "markdown.copyFiles.overwriteBehavior": "nameIncrementally",
+  "markdown.editor.filePaste.enabled": "smart",
+  "markdown.editor.filePaste.copyIntoWorkspace": "mediaFiles",
+
+  // 路径补全 / 重命名文件时保留 .md 后缀，符合 VitePress 的链接规范
+  "markdown.preferredMdPathExtensionStyle": "includeExtension",
+  // 移动或重命名 md 文件时提示自动更新引用它的链接
+  "markdown.updateLinksOnFileMove.enabled": "prompt",
+
+  // ==========================================================================
+  // 编码与保存
+  // ==========================================================================
+
+  // 注意：这里刻意设为 false。
+  // Markdown 里「行尾两个空格」是硬换行语法，自动裁剪会把换行弄丢。
+  "files.trimTrailingWhitespace": false,
+  "files.insertFinalNewline": true,
+  "files.encoding": "utf8",
+
+  // ==========================================================================
+  // 排除构建产物，避免全局搜索和文件监听被拖慢
+  // ==========================================================================
+  "search.exclude": {
+    "**/node_modules": true,
+    "docs/.vitepress/dist": true,
+    "docs/.vitepress/cache": true,
+    "package-lock.json": true
+  },
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "docs/.vitepress/dist/**": true,
+    "docs/.vitepress/cache/**": true
+  }
+}

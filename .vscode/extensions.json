@@ -1,0 +1,20 @@
+{
+  // 打开本仓库时 VS Code 会提示安装这些扩展。
+  // 扩展 ID 均已逐个在 Marketplace 验证存在。
+  "recommendations": [
+    // 表格格式化（本仓库有 39 个表格）、目录生成、列表与快捷键增强
+    "yzhang.markdown-all-in-one",
+
+    // Markdown 规范检查，能在手写 HTML 时发现漏闭合的标签
+    "davidanson.vscode-markdownlint",
+
+    // 增强预览：支持挂 markdown-it 插件和自定义 CSS，
+    // 需要 `::: tip` 容器预览时用它（内置预览不认识容器语法）
+    "shd101wyy.markdown-preview-enhanced",
+
+    // 中英混排拼写检查。中文不会被判错，无需中文词典扩展
+    // （Marketplace 上并不存在 code-spell-checker-chinese-simplified，已核实）
+    "streetsidesoftware.code-spell-checker"
+  ],
+  "unwantedRecommendations": []
+}
