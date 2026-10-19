@@ -293,12 +293,26 @@ p {
 /* ======================================
    搜索栏样式自定义
    ====================================== */
+/* 搜索按钮背景跟随导航栏：
+   - VitePress 2 的本地搜索按钮是 .VPNavBarSearchButton（默认 background: var(--vp-c-bg-alt)）
+   - Algolia 搜索按钮是 .DocSearch-Button，一并处理
+   导航栏本身是白色/渐变，这里不再给搜索框单独铺一层灰底，两者背景保持一致 */
+.VPNavBarSearchButton,
 .DocSearch-Button {
     background-color: transparent;
-    transition: color 0.2s;
+    transition: background-color 0.2s, color 0.2s;
 }
 
-.DocSearch-Button:hover {
+/* 亮色模式：去掉搜索框的灰色块，透出导航栏当前背景（白底或首页顶部的渐变） */
+:root:not(.dark) .VPNavBarSearchButton,
+:root:not(.dark) .DocSearch-Button {
     background-color: transparent;
-    color: var(--vp-c-brand);
+}
+
+/* 悬停时用品牌柔和色提示可点击，避免透明后失去交互反馈
+   （选择器带上 :root:not(.dark)，权重高于 VitePress 组件内联的默认样式） */
+:root:not(.dark) .VPNavBarSearchButton:hover,
+:root:not(.dark) .DocSearch-Button:hover {
+    background-color: var(--vp-c-brand-soft);
+    color: var(--vp-c-brand-1);
 }
